@@ -1,7 +1,6 @@
-/* Importación de fuentes (ya en el HTML) */
 /* Estilos generales */
 :root {
-    /* Uso de variables para mantener la consistencia en los colores */
+    /* Uso de variables reutilizar los colores */
     --color-principal: #1E90FF; /* Azul Eléctrico */
     --color-secundario: #39FF14; /* Verde Neón */
     --color-texto: #D3D3D3; /* Gris claro para el texto */
@@ -13,7 +12,7 @@ body {
     background-color: var(--color-fondo);
     color: var(--color-texto);
     font-family: 'Roboto', sans-serif;
-    margin: 0; /* Corrección: Eliminado '0px' por '0' para mayor consistencia */
+    margin: 0;
     line-height: 1.6;
 }
 
@@ -38,7 +37,6 @@ h1, h2, h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1px 50px; /* Agregado padding para evitar que el contenido se pegue a los bordes */
 }
 
 .top-nav ul {
@@ -57,41 +55,61 @@ h1, h2, h3 {
 
 /* Barra del medio (logo, menús, búsqueda) */
 .middle-header {
-    padding: 20px 50px;
+    padding: 20px 90px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Eliminado: margin-top: -4%; */
 }
 
 .logo-img {
-    height: 50px; /* Ajuste a un tamaño más común para headers */
+    height: 50px; 
     width: auto;
 }
+/* Contenedor de la barra de búsqueda */
+.search-container {
+    display: flex; /* Asegura que los elementos dentro se alineen en fila */
+    align-items: center; /* Centra verticalmente el contenido */
+    flex-grow: 1; /* Permite que el contenedor crezca */
+    margin: 0 30px; /* Espacio a los lados */
+    max-width: 400px; /* Ancho máximo inicial */
+    
+    /* Propiedades de estilo que mueves del input al contenedor */
+    padding: 12px 20px;
+    border: 2px solid #00ff88;
+    border-radius: 30px;
+    background: #0a0f1f;
+    box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
+    
+    /* La transición para el efecto de hover */
+    transition: max-width 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
+/* Estado de hover: aumenta el ancho del contenedor */
+.search-container:hover {
+    max-width: 500px; /* Ancho deseado al pasar el mouse */
+    box-shadow: 0 0 18px rgba(0, 195, 255, 0.8);
+}
+
+/* Estilo del input dentro de la barra */
 .search-bar {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    margin: 0 30px;
-    max-width: 600px;
-}
-
-.search-bar input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
+    width: 100%; /* La barra ocupa todo el ancho del contenedor padre */
     border: none;
-    font-size: 1em;
-}
-
-.search-bar button {
     background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2em;
+    outline: none;
     color: #fff;
-    margin-left: -35px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    padding: 0; /* Elimina el padding del input, ya que está en el contenedor */
+}
+
+/* Estilo del placeholder */
+.search-bar::placeholder {
+    color: #aaa;
+    transition: color 0.3s ease;
+}
+
+.search-bar:focus::placeholder {
+    color: #00ff88;
 }
 
 .user-info a, .shopping-cart a {
@@ -100,6 +118,11 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     gap: 5px;
+}
+
+#descripcion {
+    padding: 50px 20px;
+    text-align: center;
 }
 
 /* ------------------------------------
@@ -210,7 +233,7 @@ footer {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 800px;
+    width: 700px;
     background-color: #111111;
     border: 1px solid #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -224,6 +247,7 @@ footer {
     border-bottom: 2px solid var(--color-secundario);
     padding-bottom: 5px;
     margin-bottom: 10px;
+    margin: 20px;
 }
 
 .mega-menu ul {
@@ -236,8 +260,9 @@ footer {
     color: var(--color-texto);
     text-decoration: none;
     display: block;
-    padding: 5px 0;
+    padding: 1px 0;
     transition: color 0.3s ease;
+    margin: 20px;
 }
 
 .mega-menu li a:hover {
