@@ -1,1 +1,307 @@
+/* Importación de fuentes (ya en el HTML) */
+/* Estilos generales */
+:root {
+    /* Uso de variables para mantener la consistencia en los colores */
+    --color-principal: #1E90FF; /* Azul Eléctrico */
+    --color-secundario: #39FF14; /* Verde Neón */
+    --color-texto: #D3D3D3; /* Gris claro para el texto */
+    --color-fondo: #000000; /* Negro principal */
+    --color-fondo-oscuro: #2c2c2c; /* Gris oscuro para la barra superior */
+}
 
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: 'Roboto', sans-serif;
+    margin: 0; /* Corrección: Eliminado '0px' por '0' para mayor consistencia */
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--color-principal); 
+}
+
+/* ------------------------------------
+  Nuevos estilos del Encabezado completo
+  ------------------------------------
+*/
+/* Contenedor principal del header */
+.main-header {
+    background-color: var(--color-fondo);
+    width: 100vw;
+}
+
+/* Barra superior */
+.top-header {
+    background-color: var(--color-fondo-oscuro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px 50px; /* Agregado padding para evitar que el contenido se pegue a los bordes */
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;  
+}
+
+.top-nav a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+/* Barra del medio (logo, menús, búsqueda) */
+.middle-header {
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Eliminado: margin-top: -4%; */
+}
+
+.logo-img {
+    height: 50px; /* Ajuste a un tamaño más común para headers */
+    width: auto;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin: 0 30px;
+    max-width: 600px;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #fff;
+    margin-left: -35px;
+}
+
+.user-info a, .shopping-cart a {
+    color: var(--color-texto);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ------------------------------------
+  Sección de productos
+  ------------------------------------
+*/
+#productos {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.catalogo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.product-card {
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+}
+
+.product-card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.product-card h4 {
+    color: var(--color-principal);
+    margin: 15px 0 5px;
+}
+
+.product-card p {
+    color: var(--color-texto);
+}
+
+.product-card .precio {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--color-secundario);
+    margin: 10px 0;
+}
+
+.add-to-cart-btn {
+    background-color: var(--color-secundario);
+    color: var(--color-fondo);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--color-principal);
+}
+
+/* ------------------------------------
+  Pie de página
+  ------------------------------------
+*/
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: var(--color-texto);
+}
+
+/* ------------------------------------
+  Estilos del Menú de Categorías
+  ------------------------------------
+*/
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-trigger {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.menu-icon {
+    font-size: 1.5em;
+}
+
+.mega-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 800px;
+    background-color: #111111;
+    border: 1px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.mega-menu h4 {
+    color: var(--color-principal);
+    font-family: 'Orbitron', sans-serif;
+    border-bottom: 2px solid var(--color-secundario);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.mega-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mega-menu li a {
+    color: var(--color-texto);
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.mega-menu li a:hover {
+    color: var(--color-secundario);
+}
+
+/* ------------------------------------
+  Responsividad
+  ------------------------------------
+*/
+/* Media query para pantallas más pequeñas (máximo 768px) */
+@media (max-width: 768px) {
+    /* Estilos del header */
+    .top-header, .middle-header {
+        padding: 10px 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .middle-header {
+        padding: 10px 20px; /* Reducir padding horizontal */
+    }
+
+    /* Ocultar elementos en móviles */
+    .top-header, .user-info, .shopping-cart {
+        display: none;
+    }
+
+    .logo-img {
+        height: 100px;
+    }
+
+    .search-bar {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+    
+    /* Mostrar un menú de navegación simplificado en móviles */
+    .middle-header nav ul {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    /* Ajustar el menú de categorías */
+    .menu-container {
+        width: 100%;
+    }
+
+    .mega-menu {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90vw;
+        flex-direction: column;
+    }
+    .mega-menu ul {
+        display: block; /* Para alinear los elementos de las columnas en móviles */
+    }
+    
+    /* Estilos del catálogo de productos */
+    .catalogo {
+        flex-direction: column;
+    }
+
+    .product-card {
+        width: 100%;
+    }
+}
