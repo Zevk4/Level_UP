@@ -331,7 +331,9 @@ h1, h2, h3, h4 {
 
 .product-card img {
     max-width: 100%;
-    border-radius: 5px;
+    aspect-ratio: 1 / 1; /* cuadrado (puedes cambiar a 4 / 3, 16 / 9, etc.) */
+    object-fit: cover;   /* recorta la imagen manteniendo proporción */
+    border-radius: 8px;
 }
 
 .product-card h4 {
