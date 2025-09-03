@@ -11,116 +11,187 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+
 </head>
 
 <body>
 
-    <header class="main-header">
-        <div class="top-header">
-            <nav class="top-nav">
-                <ul>
-                    <li><a href="#">¡Atencion! Si te registras utilizando un correo institucional del DuocUC Obtendras
-                            un descuento del 20% DE POR VIDA!!</a></li>
-                </ul>
-            </nav>
-        </div>
+    <div class="top-header">
+        <nav class="top-nav">
+            <ul>
+                <li><a href="#">¡Atencion! Si te registras utilizando un correo institucional de DuocUC Obtendras
+                        un descuento del 20% DE POR VIDA!!</a></li>
+            </ul>
+        </nav>
+    </div>
 
-        <div class="middle-header">
-            <div class="logo">
-                <a href="index.html">
-                    <img src="/assets/icons/Icono_LevelUP.png" alt="Logo de Level-Up" class="logo-img">
-                </a>
-            </div>
-
-            <div class="category-menu-section">
-                <div class="menu-container">
-                    <a href="#" class="menu-trigger">
-                        <span class="menu-icon">&#9776;</span>
-                        Categorías
+    <div class="footer-down">
+        <header class="main-header">
+            <div class="middle-header">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="/assets/icons/Icono_Level_UP_Header.png" alt="Logo de Level-Up" class="logo-img">
                     </a>
+                </div>
+                    <div class="menu-container">
+                        <a href="#" class="menu-trigger">
+                            <span class="menu-icon">&#9776;</span>
+                            Categorías
+                        </a>
 
-                    <div class="mega-menu">
-                        <div class="menu-column">
-                            <h4>Consolas</h4>
-                            <ul>
-                                <li><a href="#">PlayStation 5</a></li>
-                                <li><a href="#">Xbox Series X</a></li>
-                                <li><a href="#">Nintendo Switch</a></li>
-                            </ul>
-                            <h4>Juegos de Mesa</h4>
-                            <ul>
-                                <li><a href="#">Catan</a></li>
-                                <li><a href="#">Carcassonne</a></li>
-                            </ul>
-                        </div>
+                        <div class="mega-menu">
+                            <div class="menu-column">
+                                <h4>Consolas</h4>
+                                <ul>
+                                    <li><a href="#">PlayStation 5</a></li>
+                                    <li><a href="#">Xbox Series X</a></li>
+                                    <li><a href="#">Nintendo Switch</a></li>
+                                </ul>
+                                <h4>Juegos de Mesa</h4>
+                                <ul>
+                                    <li><a href="#">Catan</a></li>
+                                    <li><a href="#">Carcassonne</a></li>
+                                </ul>
+                            </div>
 
-                        <div class="menu-column">
-                            <h4>Accesorios</h4>
-                            <ul>
-                                <li><a href="#">Auriculares Gamer</a></li>
-                                <li><a href="#">Controladores</a></li>
-                                <li><a href="#">Webcams</a></li>
-                            </ul>
-                            <h4>Mouse</h4>
-                            <ul>
-                                <li><a href="#">Mouse Gamer</a></li>
-                                <li><a href="#">Mousepad</a></li>
-                            </ul>
-                        </div>
+                            <div class="menu-column">
+                                <h4>Accesorios</h4>
+                                <ul>
+                                    <li><a href="#">Auriculares Gamer</a></li>
+                                    <li><a href="#">Controladores</a></li>
+                                    <li><a href="#">Webcams</a></li>
+                                </ul>
+                                <h4>Mouse</h4>
+                                <ul>
+                                    <li><a href="#">Mouse Gamer</a></li>
+                                    <li><a href="#">Mousepad</a></li>
+                                </ul>
+                            </div>
 
-                        <div class="menu-column">
-                            <h4>Computadores Gamers</h4>
-                            <ul>
-                                <li><a href="#">PC Escritorio</a></li>
-                                <li><a href="#">Notebooks Gamers</a></li>
-                                <li><a href="#">NOSe que mas</a></li>
-                            </ul>
-                            <h4>Sillas Gamers</h4>
-                            <ul>
-                                <li><a href="#">Secretlab</a></li>
-                                <li><a href="#">DXRacer</a></li>
-                            </ul>
+                            <div class="menu-column">
+                                <h4>Computacion</h4>
+                                <ul>
+                                    <li><a href="#">PC Escritorio</a></li>
+                                    <li><a href="#">Notebooks Gamers</a></li>
+                                    <li><a href="#">Laptops</a></li>
+                                </ul>
+                                <h4>Sillas Gamers</h4>
+                                <ul>
+                                    <li><a href="#">Secretlab</a></li>
+                                    <li><a href="#">DXRacer</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="menu-column">
+                                <h4>Poleras Personalizadas</h4>
+                                <ul>
+                                    <li><a href="#">Poleras Asus</a></li>
+                                    <li><a href="#">Poleras MSI</a></li>
+                                    <li><a href="#">Otras</a></li>
+                                </ul>
+                            </div>
+
                         </div>
 
                     </div>
+                <div class="search-container">
+                    <input type="text" class="search-bar" placeholder="🔎 Buscar Producto..." />
+                </div>
 
+                <button class="button-sesion">
+                    <div class="user-info">
+                        <svg class="icon-sesion" stroke="currentColor" fill="none" viewBox="0 0 32 32" height="32"
+                            width="32" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M25.6595 26.5589C25.0897 24.9642 23.8343 23.555 22.0878 22.5499C20.3414 21.5449 18.2016 21.0001 16.0002 21.0001C13.7989 21.0001 11.659 21.5449 9.9126 22.5499C8.16616 23.555 6.91071 24.9642 6.34096 26.5589"
+                                stroke="var(--white)" stroke-width="2" stroke-linecap="round"></path>
+                            <ellipse cx="15.9998" cy="11.0001" rx="5" ry="5" stroke="var(--white)" stroke-width="2"
+                                stroke-linecap="round"></ellipse>
+
+                        </svg>
+                        <div class="user-text">
+                            <p>Hola!</p>
+                            <p><b>Inicia sesión</b></p>
+                        </div>
+                    </div>
+                </button>
+                <div class="divider"></div>
+                <button class="carrito-compra">
+                    <div>
+                        <svg stroke="currentColor" fill="none" viewBox="0 0 32 32" height="32" width="32"
+                            xmlns="http://www.w3.org/2000/svg" class="Fractal-Header--icon">
+                            <path d="M3 5H7.26596L11.1175 21.7104H26.5481L28.157 9.81444H8.37511" stroke="var(--white)"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path
+                                d="M13.885 24.3188H13.8728C12.9977 24.3188 12.2883 25.0282 12.2883 25.9033V25.9155C12.2883 26.7906 12.9977 27.5 13.8728 27.5H13.885C14.7601 27.5 15.4695 26.7906 15.4695 25.9155V25.9033C15.4695 25.0282 14.7601 24.3188 13.885 24.3188Z"
+                                stroke="var(--white)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path
+                                d="M13.885 24.3188H13.8728C12.9977 24.3188 12.2883 25.0282 12.2883 25.9033V25.9155C12.2883 26.7906 12.9977 27.5 13.8728 27.5H13.885C14.7601 27.5 15.4695 26.7906 15.4695 25.9155V25.9033C15.4695 25.0282 14.7601 24.3188 13.885 24.3188Z"
+                                stroke="var(--white)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path
+                                d="M22.2457 24.3188H22.2335C21.3584 24.3188 20.649 25.0282 20.649 25.9033V25.9155C20.649 26.7906 21.3584 27.5 22.2335 27.5H22.2457C23.1208 27.5 23.8302 26.7906 23.8302 25.9155V25.9033C23.8302 25.0282 23.1208 24.3188 22.2457 24.3188Z"
+                                stroke="var(--white)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </header>
+
+
+
+
+        <main class="main">
+
+            <!-- Main slider container -->
+            <div class="container-publicidad">
+                <div class="imagens-publicidad">
+                    <img alt="Banner" src="/assets/images/publicidad/xbox1.gif" />
+                    <!-- Left arrow -->
+                    <button aria-label="Anterior"
+                        class="absolute top-1/2 left-2 -translate-y-1/2 bg-white rounded-full w-8 h-8 flex items-center justify-center text-[#5a1bd1] hover:bg-[#5a1bd1] hover:text-white transition">
+                        <i class="fas fa-chevron-left">
+                        </i>
+                    </button>
+                    <!-- Right arrow -->
+                    <button aria-label="Siguiente"
+                        class="absolute top-1/2 right-2 -translate-y-1/2 bg-white rounded-full w-8 h-8 flex items-center justify-center text-[#5a1bd1] hover:bg-[#5a1bd1] hover:text-white transition">
+                        <i class="fas fa-chevron-right">
+                        </i>
+                    </button>
                 </div>
             </div>
-            <div class="search-container">
-                <input type="text" class="search-bar" placeholder="🔎 Buscar Producto..." />
+
+
+            <section id="descripcion">
+                <h2><b>Eleva tu juego al siguiente nivel</b></h2>
+
+            </section>
+
+            <section id="productos">
+                <h3>Nuestros Productos</h3>
+                <div class="catalogo">
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Síguenos en redes sociales:</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
             </div>
+            <p>&copy; 2025 Level-Up Gamer. Todos los derechos reservados.</p>
+        </footer>
 
-            <div class="user-info">
-                <a href="#">Ingresar</a>
-            </div>
+        <script src="/js/script.js"></script>
+    </div>
 
-            <div class="shopping-cart">
-                <a href="#">🛒 Mis compras</a>
-            </div>
-        </div>
-    </header>
-    <main>
-        <section id="descripcion">
-            <h2>Eleva tu juego al siguiente nivel</h2>
-            <p>Productos de alta calidad para gamers de verdad.</p>
-        </section>
-
-        <section id="productos">
-            <h3>Nuestros Productos</h3>
-            <div class="catalogo">
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>Síguenos en redes sociales:</p>
-        <div class="social-links">
-            <a href="#">Facebook</a>
-        </div>
-        <p>&copy; 2025 Level-Up Gamer. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="/js/script.js"></script>
 </body>
 
 </html>

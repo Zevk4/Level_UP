@@ -1,11 +1,18 @@
-/* Estilos generales */
+/*=====================================
+  1. Estilos Generales y Variables
+  =====================================*/
 :root {
-    /* Uso de variables reutilizar los colores */
-    --color-principal: #1E90FF; /* Azul Eléctrico */
-    --color-secundario: #39FF14; /* Verde Neón */
-    --color-texto: #D3D3D3; /* Gris claro para el texto */
-    --color-fondo: #000000; /* Negro principal */
+    /* Variables de colores reutilizables */
+    --color-principal: #1E90FF;    /* Azul Eléctrico */
+    --color-secundario: #39FF14;   /* Verde Neón */
+    --color-texto: #D3D3D3;        /* Gris claro para el texto */
+    --color-fondo: #000000;        /* Negro principal */
     --color-fondo-oscuro: #2c2c2c; /* Gris oscuro para la barra superior */
+}
+
+/* Reseteo y estilos básicos para evitar problemas de layout */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 body {
@@ -14,29 +21,39 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     line-height: 1.6;
+    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     font-family: 'Orbitron', sans-serif;
     color: var(--color-principal); 
 }
 
-/* ------------------------------------
-  Nuevos estilos del Encabezado completo
-  ------------------------------------
-*/
+/*=====================================
+  2. Encabezado (Header)
+  =====================================*/
+
 /* Contenedor principal del header */
 .main-header {
     background-color: var(--color-fondo);
-    width: 100vw;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-bottom: 0;
 }
 
-/* Barra superior */
+/* Barra superior (anuncio) */
 .top-header {
     background-color: var(--color-fondo-oscuro);
     display: flex;
     justify-content: center;
     align-items: center;
+    
+    
 }
 
 .top-nav ul {
@@ -44,7 +61,7 @@ h1, h2, h3 {
     display: flex;
     gap: 20px;
     margin: 0;
-    padding: 0;  
+    padding: 0;    
 }
 
 .top-nav a {
@@ -53,56 +70,61 @@ h1, h2, h3 {
     font-size: 0.9em;
 }
 
-/* Barra del medio (logo, menús, búsqueda) */
+/* Barra del medio (logo, búsqueda, usuario) */
 .middle-header {
-    padding: 20px 90px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 200px; /* Padding a los lados */
 }
 
 .logo-img {
     height: 50px; 
     width: auto;
 }
+
+/* Separador visual */
+.divider {
+    border-right: 2px solid white;
+    height: 30px; 
+    margin: 0 1px; 
+}
+
+/*=====================================
+  3. Búsqueda y Navegación
+  =====================================*/
+
 /* Contenedor de la barra de búsqueda */
 .search-container {
-    display: flex; /* Asegura que los elementos dentro se alineen en fila */
-    align-items: center; /* Centra verticalmente el contenido */
-    flex-grow: 1; /* Permite que el contenedor crezca */
-    margin: 0 30px; /* Espacio a los lados */
-    max-width: 400px; /* Ancho máximo inicial */
-    
-    /* Propiedades de estilo que mueves del input al contenedor */
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin: 0 30px;
+    max-width: 400px;
     padding: 12px 20px;
     border: 2px solid #00ff88;
     border-radius: 30px;
     background: #0a0f1f;
     box-shadow: 0 0 12px rgba(0, 255, 136, 0.5);
-    
-    /* La transición para el efecto de hover */
     transition: max-width 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* Estado de hover: aumenta el ancho del contenedor */
 .search-container:hover {
-    max-width: 500px; /* Ancho deseado al pasar el mouse */
+    max-width: 500px;
     box-shadow: 0 0 18px rgba(0, 195, 255, 0.8);
 }
 
-/* Estilo del input dentro de la barra */
 .search-bar {
-    width: 100%; /* La barra ocupa todo el ancho del contenedor padre */
+    width: 100%;
     border: none;
     background: none;
     outline: none;
     color: #fff;
     font-size: 16px;
     font-family: 'Poppins', sans-serif;
-    padding: 0; /* Elimina el padding del input, ya que está en el contenedor */
+    padding: 0;
 }
 
-/* Estilo del placeholder */
 .search-bar::placeholder {
     color: #aaa;
     transition: color 0.3s ease;
@@ -112,23 +134,172 @@ h1, h2, h3 {
     color: #00ff88;
 }
 
-.user-info a, .shopping-cart a {
-    color: var(--color-texto);
-    text-decoration: none;
+/* Botones de usuario y carrito */
+.button-sesion, .carrito-compra, .category-menu-section {
+    background: var(--color-fondo);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.button-sesion:hover, .carrito-compra:hover, .category-menu-section:hover {
+    background: #1b2750;
+}
+
+.user-info {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
+.icon-sesion {
+    flex-shrink: 0;
+}
+
+.user-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.user-text p {
+    margin: 0;
+    font-size: 14px;
+    text-align: left;
+}
+
+/*=====================================
+  4. Menú de Categorías
+  =====================================*/
+
+  /* Mostrar el mega menú solo cuando el mouse está sobre el contenedor */
+.menu-container:hover .mega-menu {
+    display: flex;
+}
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-trigger {
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+.menu-icon {
+    font-size: 1.5em;
+    color: white;
+}
+
+/* El Mega-Menú */
+.mega-menu {
+    display: none; /* Mantiene el menú oculto hasta que se active */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: max-content; /* Un ancho generoso para acomodar las columnas */
+    background-color: #111111;
+    border: 1px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 1000;
+    /* Configuración para el diseño en columnas */
+    flex-direction: row; /* Coloca las columnas horizontalmente */
+    justify-content: flex-start; /* Alinea las columnas a la izquierda */
+    gap: 40px; /* Espacio entre cada columna */
+}
+
+/* Las columnas del menú */
+.menu-column {
+    display: flex;
+    flex-direction: column;
+    /* Las columnas no se expandirán ni se encogerán, manteniendo el mismo tamaño */
+    flex-grow: 0;
+    flex-shrink: 0;
+    /* Puedes establecer un ancho fijo para cada columna si es necesario, por ejemplo: */
+}
+
+/* Títulos de las categorías */
+.mega-menu h4 {
+    color: var(--color-principal);
+    font-family: 'Orbitron', sans-serif;
+    border-bottom: 2px solid var(--color-secundario);
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+/* Lista de categorías */
+.mega-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mega-menu li a {
+    color: var(--color-texto);
+    text-decoration: none;
+    display: block; /* Asegura que cada enlace ocupe toda la línea */
+    padding: 1px 0;
+    line-height: 1.5; /* Espacio entre las categorías */
+    transition: color 0.3s ease;
+}
+
+.mega-menu li a:hover {
+    color: var(--color-secundario);
+}
+/*=====================================
+  5. Contenido Principal (Main)
+  =====================================*/
+
+.main {
+    padding-top: 0px;
+}
+
+/* Slider */
+.container-publicidad {
+    position: relative;
+    width: 96%;
+    height: auto;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+.imagens-publicidad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.imagens-publicidad img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #000;
+}
+
+/* Descripción */
 #descripcion {
-    padding: 50px 20px;
-    text-align: center;
+    padding: 0 20px;
+    text-align: left;
+    
 }
 
-/* ------------------------------------
-  Sección de productos
-  ------------------------------------
-*/
+/* Sección de productos */
 #productos {
     padding: 50px 20px;
     text-align: center;
@@ -194,139 +365,81 @@ h1, h2, h3 {
     background-color: var(--color-principal);
 }
 
-/* ------------------------------------
-  Pie de página
-  ------------------------------------
-*/
+/*=====================================
+  6. Pie de página (Footer)
+  =====================================*/
+
 footer {
+    margin-top: auto; /* Esto empuja el footer hacia abajo */
     text-align: center;
     padding: 20px;
     background-color: #111;
     color: var(--color-texto);
+
 }
 
-/* ------------------------------------
-  Estilos del Menú de Categorías
-  ------------------------------------
-*/
-.menu-container {
-    position: relative;
-    display: inline-block;
-}
+/*=====================================
+  7. Responsividad (Media Queries)
+  =====================================*/
 
-.menu-trigger {
-    color: var(--color-texto);
-    text-decoration: none;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-}
-
-.menu-icon {
-    font-size: 1.5em;
-}
-
-.mega-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 700px;
-    background-color: #111111;
-    border: 1px solid #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    z-index: 1000;
-}
-
-.mega-menu h4 {
-    color: var(--color-principal);
-    font-family: 'Orbitron', sans-serif;
-    border-bottom: 2px solid var(--color-secundario);
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    margin: 20px;
-}
-
-.mega-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.mega-menu li a {
-    color: var(--color-texto);
-    text-decoration: none;
-    display: block;
-    padding: 1px 0;
-    transition: color 0.3s ease;
-    margin: 20px;
-}
-
-.mega-menu li a:hover {
-    color: var(--color-secundario);
-}
-
-/* ------------------------------------
-  Responsividad
-  ------------------------------------
-*/
-/* Media query para pantallas más pequeñas (máximo 768px) */
+/* Estilos para pantallas más pequeñas (máximo 768px) */
 @media (max-width: 768px) {
-    /* Estilos del header */
-    .top-header, .middle-header {
-        padding: 10px 20px;
+    /* Ocultar elementos en móviles */
+    .top-header, .user-info {
+        display: none;
+    }
+
+    /* Ajustes generales del encabezado */
+    .main-header {
         flex-direction: column;
         align-items: center;
+        padding: 10px 20px;
     }
     
     .middle-header {
-        padding: 10px 20px; /* Reducir padding horizontal */
-    }
-
-    /* Ocultar elementos en móviles */
-    .top-header, .user-info, .shopping-cart {
-        display: none;
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px 20px;
     }
 
     .logo-img {
         height: 100px;
     }
 
-    .search-bar {
+    .search-container {
         max-width: 100%;
         margin: 10px 0;
     }
     
-    /* Mostrar un menú de navegación simplificado en móviles */
-    .middle-header nav ul {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    /* Ajustar el menú de categorías */
-    .menu-container {
+    /* Menú y carrito en la versión móvil */
+    .middle-header .category-menu-section,
+    .middle-header .carrito-compra {
         width: 100%;
     }
 
+    /* Estilos del mega-menú */
     .mega-menu {
         left: 50%;
         transform: translateX(-50%);
         width: 90vw;
         flex-direction: column;
     }
-    .mega-menu ul {
-        display: block; /* Para alinear los elementos de las columnas en móviles */
+
+    .mega-menu h4 {
+        margin: 10px 0;
     }
-    
-    /* Estilos del catálogo de productos */
+
+    .mega-menu li a {
+        margin: 10px 0;
+    }
+
+    /* Ajustes del catálogo de productos */
     .catalogo {
         flex-direction: column;
+        align-items: center;
     }
 
     .product-card {
-        width: 100%;
+        width: 90%;
     }
 }
