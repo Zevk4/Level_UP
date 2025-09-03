@@ -16,7 +16,7 @@ const productos = [
     // MOUSEPADS
     { codigo: 'MP001', imagen: '/assets/img/product/MP001.webp' ,categoria: 'Mousepads', nombre: 'Mousepad Gamer Razer Goliathus Extended Chroma', precio: 29990, descripcion: 'Superficie amplia con iluminación RGB personalizable.' },
     // POLERAS PERSONALIZADAS
-    { codigo: 'PP001', imagen: '/assets/img/product/SG001.webp' ,categoria: 'Poleras Personalizadas', nombre: 'Polera Gamer Personalizada "Level Up"', precio: 14990, descripcion: 'Camiseta cómoda personalizable con tu gamer tag o diseño.' },
+    { codigo: 'PP001', imagen: '/assets/img/product/PP001.webp' ,categoria: 'Poleras Personalizadas', nombre: 'Polera Gamer Personalizada "Level Up"', precio: 14990, descripcion: 'Camiseta cómoda personalizable con tu gamer tag o diseño.' },
 ];
 
 // Función para renderizar los productos en la página
