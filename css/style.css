@@ -32,6 +32,17 @@ h1, h2, h3, h4 {
     color: var(--color-principal);
 }
 
+/* Contenedor MAIN para el tema del padding */
+.container-main {
+    min-width: 1300px;
+}
+
+.container-main {
+    padding-left: 110px;
+    padding-right: 110px;
+    align-items: center;
+}
+
 /*=====================================
   2. Encabezado (Header)
   =====================================*/
@@ -303,8 +314,8 @@ h1, h2, h3, h4 {
 
 /* Descripción */
 #descripcion {
-    padding: 0 20px;
-    text-align: center;
+    padding: 10 20px;
+    text-align: left;
 }
 
 /* Sección de productos */
@@ -373,6 +384,44 @@ h1, h2, h3, h4 {
 
 .add-to-cart-btn:hover {
     background-color: var(--color-principal);
+}
+
+.slider-mas-vistos {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Oculta los elementos que se salen del contenedor */
+}
+
+.slider-wrapper {
+    display: flex; /* Coloca los elementos uno al lado del otro */
+    transition: transform 0.5s ease-in-out; /* Suaviza el movimiento del slider */
+}
+
+.slider-item {
+    min-width: 25%; /* Muestra 4 elementos por vista */
+    box-sizing: border-box; /* Incluye padding y border en el tamaño del elemento */
+    padding: 0 10px; /* Espacio entre los productos */
+}
+
+.slider-prev,
+.slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+.slider-prev {
+    left: 10px;
+}
+
+.slider-next {
+    right: 10px;
 }
 
 /*=====================================

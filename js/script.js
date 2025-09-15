@@ -31,7 +31,6 @@ function renderizarProductos() {
             <h4>${producto.nombre}</h4>
             <p>${producto.descripcion}</p>
             <p class="precio">$${producto.precio.toLocaleString('es-CL')} CLP</p>
-            <button class="add-to-cart-btn" data-codigo="${producto.codigo}">Agregar al Carrito</button>
         `;
         catalogoContainer.appendChild(productCard);
     });
