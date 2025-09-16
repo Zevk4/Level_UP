@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Level-Up Gamer</title>
-  <link rel="icon" type="image/png" href="assets/icons/Icon_Level_UP_Basico.png">
+  <link rel="icon" type="image/png" href="../assets/icons/Icon_Level_UP_Basico.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -164,26 +164,24 @@
     </div>
   </header>
 
+  <!-- Carrito de compras -->
+  <aside id="cartDrawer" class="drawer" hidden aria-labelledby="cartTitle" role="dialog" aria-modal="true">
+    <div class="drawer-header">
+      <h4 id="cartTitle">Tu carrito</h4>
+      <button type="button" id="closeCart" aria-label="Cerrar">✕</button>
+    </div>
+    <div id="cartItems" class="drawer-body"></div>
+    <div class="drawer-footer">
+      <div><span>Subtotal</span> <strong id="subtotal">$0</strong></div>
+      <div><span>Descuento DUOC</span> <strong id="duoc">$0</strong></div>
+      <div class="total"><span>Total</span> <strong id="total">$0</strong></div>
+      <button type="button" id="checkout">Finalizar compra</button>
+    </div>
+  </aside>
+
   <main class="container-main" style="max-width:1100px;margin:0 auto;padding:0 16px">
     <section id="productDetailView"></section>
-    <!-- (Opcional) Drawer de carrito: si lo agregas aquí, se abrirá desde esta página también -->
-
-    <aside id="cartDrawer" class="drawer" hidden aria-labelledby="cartTitle" role="dialog" aria-modal="true">
-      <div class="drawer-header">
-        <h4 id="cartTitle">Tu carrito</h4>
-        <button type="button" id="closeCart" aria-label="Cerrar">✕</button>
-      </div>
-      <div id="cartItems" class="drawer-body"></div>
-      <div class="drawer-footer">
-        <div><span>Subtotal</span> <strong id="subtotal">$0</strong></div>
-        <div><span>Descuento DUOC</span> <strong id="duoc">$0</strong></div>
-        <div class="total"><span>Total</span> <strong id="total">$0</strong></div>
-        <button type="button" id="checkout">Finalizar compra</button>
-      </div>
-    </aside>
   </main>
-
-
 
   <footer>
     <p>Síguenos en redes sociales:</p>
