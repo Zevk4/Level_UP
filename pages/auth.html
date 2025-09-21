@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Register</title>
+  <link rel="icon" type="image/png" href="../assets/icons/Icon_Level_UP_Basico.png">
+  <link rel="stylesheet" href="../css/auth.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+
+  <div class="container" id="container">
+    <div class="form-container register">
+      <form id="registerForm" novalidate>
+        <h1>Crear una cuenta</h1>
+        <span>Utiliza tu email para registrarte</span>
+        <input type="text" id="register-nombre" name="nombre" placeholder="Nombre" required />
+        <input type="email" id="register-email" name="email" placeholder="Email" required />
+        <input type="password" id="register-password" name="password" placeholder="Contraseña" required />
+        <p id="register-message" class="form-message"></p>
+        <button type="submit">Registrarte</button>
+        <p class="mobile-toggle-text">¿Ya tienes una cuenta? <a id="toLoginMobile">Inicia Sesión</a></p>
+      </form>
+    </div>
+
+    <div class="form-container login">
+      <form id="loginForm" novalidate>
+        <h1>Iniciar Sesión</h1>
+        <input type="email" id="login-email" name="email" placeholder="Email" required />
+        <input type="password" id="login-password" name="password" placeholder="Contraseña" required />
+        <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+        <p id="login-message" class="form-message"></p>
+        <button type="submit">Ingresar</button>
+        <p class="mobile-toggle-text">¿No tienes una cuenta? <a id="toRegisterMobile">Regístrate</a></p>
+      </form>
+    </div>
+
+    <div class="alternar-container">
+      <div class="alternar">
+        <div class="alternar-panel alternar-izquierda">
+          <h1>¡Bienvenido de Nuevo!</h1>
+          <p>Ingresa con la información de tu cuenta</p>
+          <button class="hidden" id="toLogin">Ingresar</button>
+        </div>
+        <div class="alternar-panel alternar-derecha">
+          <h1>Crea una cuenta</h1>
+          <p>Regístrate con tus datos para empezar</p>
+          <button class="hidden" id="toRegister">Registrarte</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/js/auth-page.js"></script>
+</body>
+</html>

@@ -117,7 +117,26 @@
       </div>
 
       <div class="acciones_user">
-        <button class="button-sesion">
+        <div id="login-container">
+          <button href="pages/auth.html" class="button-sesion">
+            <div class="user-info">
+              <svg class="icon-sesion" stroke="currentColor" fill="none" viewBox="0 0 32 32" height="32" width="32"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M25.6595 26.5589C25.0897 24.9642 23.8343 23.555 22.0878 22.5499C20.3414 21.5449 18.2016 21.0001 16.0002 21.0001C13.7989 21.0001 11.659 21.5449 9.9126 22.5499C8.16616 23.555 6.91071 24.9642 6.34096 26.5589"
+                  stroke="var(--white)" stroke-width="2" stroke-linecap="round"></path>
+                <ellipse cx="15.9998" cy="11.0001" rx="5" ry="5" stroke="var(--white)" stroke-width="2"
+                  stroke-linecap="round"></ellipse>
+              </svg>
+              <div class="user-text">
+                <p>Hola!</p>
+                <p><b>Inicia sesión</b></p>
+              </div>
+            </div>
+          </button>
+        </div>
+
+        <div id="user-profile-container" class="hidden">
           <div class="user-info">
             <svg class="icon-sesion" stroke="currentColor" fill="none" viewBox="0 0 32 32" height="32" width="32"
               xmlns="http://www.w3.org/2000/svg">
@@ -126,14 +145,13 @@
                 stroke="var(--white)" stroke-width="2" stroke-linecap="round"></path>
               <ellipse cx="15.9998" cy="11.0001" rx="5" ry="5" stroke="var(--white)" stroke-width="2"
                 stroke-linecap="round"></ellipse>
-
             </svg>
             <div class="user-text">
-              <p>Hola!</p>
-              <p><b>Inicia sesión</b></p>
+              <p id="user-greeting">Hola, Usuario</p> <button onclick="logout()" class="logout-button"><b>Cerrar
+                  Sesión</b></button>
             </div>
           </div>
-        </button>
+        </div>
 
         <div class="divider"></div>
 
@@ -191,7 +209,7 @@
     <p>&copy; 2025 Level-Up Gamer. Todos los derechos reservados.</p>
   </footer>
 
-  <script src="../js/script.js" defer></script>
+  <script type="module" src="/js/main.js"></script>
 </body>
 
 </html>

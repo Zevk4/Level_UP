@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Level-Up Gamer</title>
-    <link rel="icon" type="image/png" href="assets/icons/Icon_Level_UP_Basico.png">
+    <link rel="icon" type="image/png" href="../assets/icons/Icon_Level_UP_Basico.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css\style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -139,7 +139,26 @@
             </div>
 
             <div class="acciones_user">
-                <button class="button-sesion">
+                <div id="login-container">
+                    <button class="button-sesion">
+                        <div class="user-info">
+                            <svg class="icon-sesion" stroke="currentColor" fill="none" viewBox="0 0 32 32" height="32"
+                                width="32" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M25.6595 26.5589C25.0897 24.9642 23.8343 23.555 22.0878 22.5499C20.3414 21.5449 18.2016 21.0001 16.0002 21.0001C13.7989 21.0001 11.659 21.5449 9.9126 22.5499C8.16616 23.555 6.91071 24.9642 6.34096 26.5589"
+                                    stroke="var(--white)" stroke-width="2" stroke-linecap="round"></path>
+                                <ellipse cx="15.9998" cy="11.0001" rx="5" ry="5" stroke="var(--white)" stroke-width="2"
+                                    stroke-linecap="round"></ellipse>
+                            </svg>
+                            <div class="user-text">
+                                <p>Hola!</p>
+                                <p><b>Inicia sesión</b></p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <div id="user-profile-container" class="hidden">
                     <div class="user-info">
                         <svg class="icon-sesion" stroke="currentColor" fill="none" viewBox="0 0 32 32" height="32"
                             width="32" xmlns="http://www.w3.org/2000/svg">
@@ -148,14 +167,13 @@
                                 stroke="var(--white)" stroke-width="2" stroke-linecap="round"></path>
                             <ellipse cx="15.9998" cy="11.0001" rx="5" ry="5" stroke="var(--white)" stroke-width="2"
                                 stroke-linecap="round"></ellipse>
-
                         </svg>
                         <div class="user-text">
-                            <p>Hola!</p>
-                            <p><b>Inicia sesión</b></p>
+                            <p id="user-greeting">Hola, Usuario</p> <button onclick="logout()"
+                                class="logout-button"><b>Cerrar Sesión</b></button>
                         </div>
                     </div>
-                </button>
+                </div>
 
                 <div class="divider"></div>
 
@@ -211,17 +229,20 @@
                 <h3><b>Nuevas Review</b></h3>
                 <div class="reviews-slider">
 
-                    <a href="https://www.youtube.com/watch?v=Hb8DbknQETU" target="_blank" class="review-card review-card-mouse">
+                    <a href="https://www.youtube.com/watch?v=Hb8DbknQETU" target="_blank"
+                        class="review-card review-card-mouse">
                         <h4><b>Review Logitech G502 HERO</b></h4>
                         <p>Un mouse gamer con sensor preciso y botones programables.</p>
                     </a>
 
-                    <a href="https://www.youtube.com/watch?v=jYFVL-9HEaE" target="_blank" class="review-card review-card-pc">
+                    <a href="https://www.youtube.com/watch?v=jYFVL-9HEaE" target="_blank"
+                        class="review-card review-card-pc">
                         <h4><b>Asus ROG Strix G10</b></h4>
                         <p>¿Rinde bien para juegos competitivos? Lo probamos.</p>
                     </a>
 
-                    <a href="https://www.youtube.com/watch?v=TbmXaItIYno" target="_blank" class="review-card review-card-audi">
+                    <a href="https://www.youtube.com/watch?v=TbmXaItIYno" target="_blank"
+                        class="review-card review-card-audi">
                         <h4><b>Review HyperX Cloud II</b></h4>
                         <p>Pongamos a prueba los Nuevos Auriculares HyperX Cloud II .</p>
                     </a>
@@ -231,7 +252,7 @@
 
             <section id="mas-visto" class="mas-visto">
                 <div class="mv-head">
-                    <h3>Lo más visto</h3>
+                    <h3><b>Lo más visto</b></h3>
                     <a class="mv-more" href="index.html?cat=Consolas#productos">Ver más</a>
                 </div>
 
@@ -249,11 +270,11 @@
             </section>
 
             <section id="categorias-populares" class="cat-pop container-main">
-                <h3>Categorías populares</h3>
+                <h3><b>Categorías populares</b></h3>
 
                 <div class="cat-grid">
                     <!-- Computación / PC Escritorio -->
-                    <a class="cat-card cat--blue" href="index.html?cat=Computacion&sub=PC%20Escritorio#productos">
+                    <a class="cat-card cat--blue" href="../pages/categoria.html?cat=Computacion#productos">
                         <div class="cat-info">
                             <h4>PC Gamer</h4>
                             <p>Corre tus juegos al máximo rendimiento</p>
@@ -265,7 +286,7 @@
                     </a>
 
                     <!-- Consolas / PlayStation -->
-                    <a class="cat-card cat--blue" href="index.html?cat=Consolas&sub=PlayStation#productos">
+                    <a class="cat-card cat--blue" href="../pages/categoria.html?cat=Consolas&sub=PlayStation#productos">
                         <div class="cat-info">
                             <h4>PlayStation</h4>
                             <p>Lo más reciente de Sony</p>
@@ -277,7 +298,8 @@
                     </a>
 
                     <!-- Periféricos / Mouse Gamer -->
-                    <a class="cat-card cat--green" href="index.html?cat=Perifericos&sub=Mouse%20Gamer#productos">
+                    <a class="cat-card cat--green"
+                        href="../pages/categoria.html?cat=Perifericos&sub=Mouse%20Gamer#productos">
                         <div class="cat-info">
                             <h4>Mouse gamer</h4>
                             <p>Precisión y velocidad para competir</p>
@@ -289,7 +311,7 @@
                     </a>
 
                     <!-- Sillas Gamers -->
-                    <a class="cat-card cat--blue" href="index.html?cat=Poleras%20Personalizadas#productos">
+                    <a class="cat-card cat--blue" href="../pages/categoria.html?cat=Sillas%20Gamer#productos">
                         <div class="cat-info">
                             <h4>Sillas Gamer</h4>
                             <p>La mayor Comodidad</p>
@@ -315,7 +337,7 @@
         <p>&copy; 2025 Level-Up Gamer. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="js\script.js"></script>
+    <script type="module" src="/js/main.js"></script>
 
 </body>
 

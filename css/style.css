@@ -332,7 +332,6 @@ h1, h2, h3, h4 {
 }
 
 
-
 .review-card-pc {
     background-image: url(/assets/img/publicidad/pc.webp);
     background-size: cover;
@@ -733,7 +732,120 @@ h1, h2, h3, h4 {
     transform: scale(1.06);
 }
 
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 350px;
+  max-width: 90%;
+  height: 100vh;
+  background: var(--color-fondo-claro);
+  color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
 
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+.drawer-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem 0;
+}
+
+.drawer-footer {
+  border-top: 1px solid #444;
+  padding-top: 1rem;
+}
+
+.drawer-footer button {
+  width: 100%;
+  padding: 12px;
+  background: var(--color-secundario);
+  border: none;
+  border-radius: 8px;
+  color: var(--color-fondo);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.drawer-footer div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.drawer-footer .total {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.cart-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.cart-line img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.cart-line .info {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.cart-line .info strong {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2rem;
+  height: calc(1.2rem * 2);
+  max-width: 180px;
+}
+
+.cart-line .muted {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 2px;
+}
+
+.cart-line .acciones {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-left: 10px;
+}
 
 
 /*=====================================
