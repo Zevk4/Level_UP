@@ -81,3 +81,28 @@ export function initAuthUI() {
         logoutButton.addEventListener('click', logout);
     }
 } 
+// --- LÓGICA DE REGISTRO DE USUARIOS (SIMULADA) ---
+// Nota: Esta es una simulación simple. En producción, esto se manejaría en el backend.
+// TEMPORAL // SOLO DESARROLLO //
+import { agregarUsuario, usuariosRegistrados } from './utils.js';
+
+// Manejar el evento de registro
+document.getElementById('registerForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById('register-nombre').value;
+    const email = document.getElementById('register-email').value;
+    const password = document.getElementById('register-password').value;
+
+    // Validar si el usuario ya existe
+    const usuarioExistente = usuariosRegistrados.some((usuario) => usuario.email === email);
+
+    if (usuarioExistente) {
+        document.getElementById('register-message').textContent = "El usuario ya está registrado.";
+    } else {
+        // Agregar el nuevo usuario al JSON temporal
+        agregarUsuario(nombre, email, password);
+        document.getElementById('register-message').textContent = "Usuario registrado con éxito.";
+        console.log("Usuarios registrados:", usuariosRegistrados);
+    }
+});

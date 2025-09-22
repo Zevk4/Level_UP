@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const nombre = form.nombre.value;
         const email = form.email.value;
         const password = form.password.value;
-
+    
         if (!nombre.trim() || !email.trim() || !password.trim()) {
             messageEl.textContent = 'Todos los campos son obligatorios.';
             return;
@@ -45,20 +45,20 @@ document.addEventListener('DOMContentLoaded', () => {
             messageEl.textContent = 'El email y la contraseña no pueden contener espacios.';
             return;
         }
-
+    
         button.disabled = true;
         button.textContent = 'Registrando...';
         messageEl.textContent = '';
         try {
             await new Promise(resolve => setTimeout(resolve, 500));
-            const users = getUsers();
+            const users = getUsers(); // Obtener usuarios existentes
             const userExists = users.some(user => user.email === email);
             if (userExists) {
                 messageEl.textContent = 'El correo electrónico ya está registrado.';
                 messageEl.classList.remove('success');
             } else {
-                users.push({ nombre, email, password });
-                saveUsers(users);
+                users.push({ nombre, email, password }); // Agregar nuevo usuario
+                saveUsers(users); // Guardar en localStorage
                 messageEl.textContent = '¡Registro exitoso! Ya puedes iniciar sesión.';
                 messageEl.classList.add('success');
                 form.reset();
@@ -68,6 +68,16 @@ document.addEventListener('DOMContentLoaded', () => {
             button.disabled = false;
             button.textContent = 'Registrarte';
         }
+    }
+    // Obtener usuarios desde localStorage
+    function getUsers() {
+        const users = localStorage.getItem('users');
+        return users ? JSON.parse(users) : [];
+    }
+
+    // Guardar usuarios en localStorage
+    function saveUsers(users) {
+        localStorage.setItem('users', JSON.stringify(users));
     }
 
     // -- Formulario de Login --

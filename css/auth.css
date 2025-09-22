@@ -134,7 +134,7 @@ form a.forgot {
 .container input::placeholder {
     color: #888;
 }
-
+/* Mensaje de registro/inicio de sesión */
 .form-message {
     color: var(--color-error);
     font-size: 14px;
@@ -196,7 +196,38 @@ form a.forgot {
 .alternar-container {
     display: none;
 }
+.auth-button {
+    background-color: var(--color-secundario);
+    /* Verde Neón */
+    color: var(--color-fondo);
+    /* Texto negro para contraste */
+    font-size: 12px;
+    font-weight: 700;
+    padding: 100px;
+    border: none;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
 
+.auth-button:hover {
+    background-color: #49f072;
+    /* Un verde un poco más claro */
+    box-shadow: 0 0 10px var(--color-principal);
+}
+
+/* Estilo específico para el botón de Volver */
+.back-button {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-transform: none;
+}
 /* --- Estilos para Escritorio --- */
 @media (min-width: 768px) {
     .container {

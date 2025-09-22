@@ -32,3 +32,30 @@ export const CLP = (number) => {
         currency: 'CLP'
     }).format(number);
 };
+
+// Simulación de una base de datos de usuarios en un JSON temporal SOLO DESARROLLO
+export const usuariosRegistrados = [
+    {
+        nombre: "Admin",
+        email: "admin@adminlvup.cl",
+        password: "admin123", // Nota: Nunca almacenes contraseñas en texto plano en producción.
+        rol: "admin"
+    },
+    {
+        nombre: "Usuario",
+        email: "usuario@correo.com",
+        password: "usuario123",
+        rol: "usuario"
+    }
+];
+
+/**
+ * Agrega un nuevo usuario al JSON temporal.
+ * @param {string} nombre - El nombre del usuario.
+ * @param {string} email - El correo del usuario.
+ * @param {string} password - La contraseña del usuario.
+ * @param {string} rol - El rol del usuario (por defecto "usuario").
+ */
+export const agregarUsuario = (nombre, email, password, rol = "usuario") => {
+    usuariosRegistrados.push({ nombre, email, password, rol });
+};
