@@ -203,3 +203,29 @@ export function renderMasVisto(productos) {
     rAF = requestAnimationFrame(renderMasVisto);
   }, { passive: true });
 }
+
+
+// ------------------------------------------------------------------------
+// Lógica para el buscador
+// ------------------------------------------------------------------------
+export function renderSearchResults(results) {
+    const container = $('.search-results');
+    if (!container) return;
+
+    if (results.length === 0) {
+        container.innerHTML = '<p class="no-results">No se encontraron resultados.</p>';
+        return;
+    }
+
+    const html = results.map(p => `
+        <a href="${PATH.PRODUCTO}?code=${encodeURIComponent(p.codigo)}" class="search-result-item">
+            <img src="${asset(p.imagen)}" alt="${p.nombre}">
+            <div class="info">
+                <div class="name">${p.nombre}</div>
+                <div class="price">${CLP(p.precio)}</div>
+            </div>
+        </a>
+    `).join('');
+
+    container.innerHTML = html;
+}

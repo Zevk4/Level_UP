@@ -1,6 +1,6 @@
 /* =======================================
-   CSS LOGIN CON PALETA DE COLORES UNIFICADA
-   ======================================= */
+CSS LOGIN CON PALETA DE COLORES UNIFICADA
+======================================= */
 
 /* --- Variables y Estilos Base --- */
 :root {
@@ -314,8 +314,8 @@ form a.forgot {
     button.hidden {
         background-color: transparent;
         border: 1px solid var(--color-principal);
-        /* Borde Azul Eléctrico */
         color: var(--color-principal);
+        cursor: pointer;;
     }
 
     button.hidden:hover {

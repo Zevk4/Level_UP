@@ -259,6 +259,71 @@ h1, h2, h3, h4 {
     color: var(--color-secundario);
 }
 
+/* Estilos para el contenedor de resultados de búsqueda */
+.search-results {
+    position: absolute;
+    top: 100%; /* Se posiciona justo debajo de la barra de búsqueda */
+    left: 0;
+    width: 100%;
+    max-height: 400px;
+    background-color: #1c1c1c; /* Fondo oscuro similar al de tu tema */
+    border: 1px solid #333;
+    border-top: none;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+.search-results.hidden {
+    display: none;
+}
+
+/* Estilos para cada ítem de resultado */
+.search-result-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    border-bottom: 1px solid #333;
+    transition: background-color 0.2s ease;
+}
+
+.search-result-item:hover {
+    background-color: #333;
+}
+
+.search-result-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.search-result-item .info {
+    flex-grow: 1;
+}
+
+.search-result-item .name {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.search-result-item .price {
+    font-size: 0.9em;
+    color: #39FF14; /* Tu color verde */
+}
+
+/* Estilo para el mensaje de "No resultados" */
+.no-results {
+    color: #999;
+    text-align: center;
+    padding: 20px;
+}
+
 /*=====================================
   3. Contenido Principal (Main)
   =====================================*/
@@ -852,30 +917,116 @@ h1, h2, h3, h4 {
   4. Pie de página (Footer)
   =====================================*/
 
+/* Contenedor principal del footer */
 footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem 4rem;
+    background-color: #1a1a1a;
+    color: #fff;
     margin-top: auto;
-    text-align: center;
-    padding: 20px;
-    background-color: #111;
-    color: var(--color-texto);
-}
-.social-links a {
-    color: #333;
-    font-size: 30px;
-    margin: 0 10px;
-    transition: color 0.3s ease;
-    text-decoration: none;
 }
 
-/* Colores específicos para cada red social */
-.social-links a:nth-child(1) { color: #3b5998; } /* Facebook */
-.social-links a:nth-child(2) { color: #E1306C; } /* Instagram */
-.social-links a:nth-child(3) { color: #0077b5; } /* LinkedIn */
-.social-links a:nth-child(4) { color: #1DA1F2; }
-.social-links a:nth-child(5) { color: #FF0000; } /* YouTube */
+/* Contenedor para el mapa y las redes sociales */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+/* Sección del mapa y título */
+.footer-left {
+    flex: 1;
+    min-width: 300px;
+    margin-right: 2rem;
+    text-align: center;
+}
+
+/* Sección de redes sociales */
+.footer-right {
+    flex: 1;
+    min-width: 300px;
+    text-align: center; /* ¡Centra el contenido del contenedor! */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ¡Centra los elementos internos! */
+    gap: 10px;
+}
+
+/* Estilos del mapa */
+.map-container {
+    width: 100%;
+    height: 300px;
+    margin: 0;
+}
+
+#footerMap {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para los íconos de redes sociales */
+.social-links {
+    text-align: center; /* ¡Asegura que los íconos estén centrados! */
+}
+
+.social-links a {
+    font-size: 50px; /* ¡Nuevo tamaño: 30px + 20px = 50px! */
+    margin: 0 10px;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
 
 .social-links a:hover {
     opacity: 0.7;
+}
+
+/* Colores de las redes sociales */
+.social-links a:nth-child(1) { color: #3b5998; }
+.social-links a:nth-child(2) { color: #E1306C; }
+.social-links a:nth-child(3) { color: #0077b5; }
+.social-links a:nth-child(4) { color: #1DA1F2; }
+.social-links a:nth-child(5) { color: #FF0000; }
+
+/* Sección de derechos de autor */
+.footer-copyright {
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid var(--color-secundario);
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+/*
+ * ------------------------------------------------------------------------
+ * RESPONSIVIDAD (para que funcione en móvil)
+ * ------------------------------------------------------------------------
+ */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+    }
+
+    .footer-left, .footer-right {
+        text-align: center;
+        width: 100%;
+        align-items: center;
+    }
+
+    .footer-right {
+        margin-top: 20px;
+        margin-right: 0;
+    }
 }
 /*=====================================
   5. Responsividad (Media Queries)

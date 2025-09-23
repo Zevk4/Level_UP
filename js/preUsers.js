@@ -7,7 +7,7 @@ export const preUsers = [
     },
     {
         nombre: 'Gino',
-        email: 'usuario@duocuc.cl',
-        password: 'duoc2025'
+        email: 'user@duocuc.cl',
+        password: 'duoc1234'
     }
 ];
