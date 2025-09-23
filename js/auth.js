@@ -1,83 +1,54 @@
-/**
- * ------------------------------------------------------------------------
- * Módulo de Autenticación (auth.js)
- * ------------------------------------------------------------------------
- * Responsabilidades:
- * - Gestionar el estado del usuario (leer de sessionStorage).
- * - Proveer funciones para verificar el estado de la sesión.
- * - Actualizar la UI del header para reflejar si el usuario está logueado o no.
- * - Manejar el cierre de sesión.
- * ------------------------------------------------------------------------
- */
+// auth.js
+import { preUsers } from './preUsers.js';
 
-// Importamos las dependencias necesarias
-import { PATH } from './config.js';
-import { $ } from './utils.js';
+// Variables globales
+export let usuario = null;
 
-// --- ESTADO Y FUNCIONES AUXILIARES (EXPORTADAS) ---
-
-// 1. Exportamos la variable 'usuario' para que otros módulos (como cart.js)
-//    puedan acceder a la información del usuario logueado.
-export const usuario = JSON.parse(sessionStorage.getItem('loggedInUser') || 'null');
-
-// 2. Exportamos una función para verificar si el usuario ha iniciado sesión.
 export function isUserLoggedIn() {
-    return usuario !== null;
+    const sesion = localStorage.getItem('userSession');
+    if (sesion) {
+        usuario = JSON.parse(sesion);
+        return true;
+    }
+    return false;
 }
 
-// 3. Exportamos la función de verificación de email de Duoc.
-export const esDuoc = (email) => /@duocuc\.cl$/i.test(email || '');
+export function login(email, password) {
+    const user = preUsers.find(u => u.email === email && u.password === password);
+    if (user) {
+        usuario = { nombre: user.nombre, email: user.email };
+        localStorage.setItem('userSession', JSON.stringify(usuario));
 
-// 4. Exportamos la función de cierre de sesión.
+        // Redirigir al admin si es admin
+        if (email === 'admin@adminlvup.cl') {
+            window.location.href = './admin/index_admin.html';
+        } else {
+            window.location.href = './index.html';
+        }
+
+        return true;
+    }
+    return false;
+}
+
 export function logout() {
-    
-    sessionStorage.removeItem('loggedInUser');
-    alert('Has cerrado la sesión.');
-    window.location.href = PATH.INDEX; // Redirige al inicio
+    localStorage.removeItem('userSession');
+    usuario = null;
+    window.location.href = './index.html';
 }
 
-// --- LÓGICA DE LA INTERFAZ (UI) ---
-
-/**
- * Función principal que inicializa la UI de autenticación.
- * Se encarga de mostrar "Iniciar Sesión" o el perfil del usuario.
- */
-// js/auth.js
-
+// UI de sesión
 export function initAuthUI() {
     const loginContainer = document.getElementById('login-container');
     const userProfileContainer = document.getElementById('user-profile-container');
-    
-    if (!loginContainer || !userProfileContainer) {
-        return;
-    }
+    const userGreeting = document.getElementById('user-greeting');
 
     if (isUserLoggedIn()) {
-        // Lógica para cuando el usuario SÍ ha iniciado sesión
-        const userGreeting = document.getElementById('user-greeting');
-        loginContainer.classList.add('hidden');
-        userProfileContainer.classList.remove('hidden');
-        if (userGreeting) {
-            userGreeting.textContent = `Hola, ${usuario.nombre}`;
-        }
+        if (loginContainer) loginContainer.classList.add('hidden');
+        if (userProfileContainer) userProfileContainer.classList.remove('hidden');
+        if (userGreeting) userGreeting.textContent = `Hola, ${usuario.nombre}`;
     } else {
-        // Lógica para cuando el usuario NO ha iniciado sesión
-        loginContainer.classList.remove('hidden');
-        userProfileContainer.classList.add('hidden');
-
-        // --- CAMBIO: AÑADIMOS EL LISTENER AQUÍ ---
-        // Buscamos el botón dentro del contenedor de login
-        const loginButton = loginContainer.querySelector('.button-sesion');
-        if (loginButton) {
-            loginButton.addEventListener('click', () => {
-                // Al hacer clic, redirigimos a la página de autenticación
-                window.location.href = PATH.AUTH;
-            });
-        }
+        if (loginContainer) loginContainer.classList.remove('hidden');
+        if (userProfileContainer) userProfileContainer.classList.add('hidden');
     }
-    
-    const logoutButton = userProfileContainer.querySelector('.logout-button');
-    if (logoutButton) {
-        logoutButton.addEventListener('click', logout);
-    }
-} 
+}
